@@ -8,8 +8,7 @@ The experiment tests the contribution of [intrinsic reward](https://blogs.unity3
 
 ### Results
 #### Tensorboard logs for extrinsic and intrinsic rewards
-image:: 
-![Drag Racing](media/Extr_reward.png)
+!(media/Extr_reward.PNG)
 
 
 
