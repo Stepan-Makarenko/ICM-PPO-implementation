@@ -9,6 +9,7 @@ The experiment tests the contribution of [intrinsic reward](https://blogs.unity3
 ### Results
 #### Tensorboard logs for extrinsic and intrinsic rewards
 ![Mean extrinsic reward](media/Extr_reward.PNG)
+![Mean intrinsic reward](media/Intr_reward.PNG)
 
 
 
