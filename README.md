@@ -15,7 +15,7 @@ The experiment tests the contribution of [intrinsic reward](https://blogs.unity3
 #### Running examples
 ![1](media/1_l.gif)
 
-![2](media/3_l.gif)
+![2](media/2_l.gif)
 
 ![3](media/3_l.gif)
 
