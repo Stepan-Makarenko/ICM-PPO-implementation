@@ -41,7 +41,7 @@ class ActorCritic(nn.Module):
         memory.actions.append(action)
         memory.logprobs.append(dist.log_prob(action))
         # Return numpy array
-        return action.numpy()
+        return action.cpu().numpy()
 
     def evaluate(self, state, action):
         action_probs = self.action_layer(state.to(self.device))

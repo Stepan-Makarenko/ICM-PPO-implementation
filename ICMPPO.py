@@ -28,12 +28,18 @@ class ICMPPO:
         self.policy = ActorCritic(state_dim=state_dim,
                                   action_dim=action_dim,
                                   n_latent_var=n_latent_var,
-                                  activation=Swish()
+                                  activation=Swish(),
+                                  device=self.device,
                                   ).to(self.device)
+        self.policy_old = ActorCritic(state_dim,
+                                      action_dim,
+                                      n_latent_var,
+                                      activation=Swish(),
+                                      device=self.device
+                                      ).to(self.device)
 
         self.optimizer = torch.optim.Adam(self.policy.parameters(), lr=lr, betas=betas)
         self.optimizer_icm = torch.optim.Adam(self.icm.parameters(), lr=lr, betas=betas)
-        self.policy_old = ActorCritic(state_dim, action_dim, n_latent_var).to(device)
         self.policy_old.load_state_dict(self.policy.state_dict())
 
         self.MseLoss = nn.MSELoss(reduction='none')
@@ -77,7 +83,7 @@ class ICMPPO:
                                    self.timestep
                                    )
 
-            advantage = torch.zeros(1, 16)
+            advantage = torch.zeros(1, 16).to(self.device)
             advantage_lst = []
             for i in range(delta.size(1) - 1, -1, -1):
                 delta_t, mask_t = delta[:, i], mask[:, i]
